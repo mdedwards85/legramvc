@@ -8,6 +8,20 @@ ini_set("display_errors", "1");
 
 
 
+// save current paths
+
+define("ROOT_PATH", dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR);
+
+define("SYSTEM_PATH", ROOT_PATH . "system" . DIRECTORY_SEPARATOR);
+
+
+
+// load system classes
+
+require_once(SYSTEM_PATH . "sys.application.php");
+
+
+
 /**
 * Main entry point of the application.
 *
@@ -18,7 +32,9 @@ ini_set("display_errors", "1");
 
 function main($_uri) {
 
-	echo "URI: " . $_uri;
+	$application = new sysApplication();
+
+	$application->start($_uri);
 
 	return;
 
