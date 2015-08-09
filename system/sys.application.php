@@ -5,7 +5,7 @@
 /**
 * Controls the flow of the application.
 *
-* @package		legramvc
+* @package	legramvc
 * @subpackage	system
 */
 
@@ -14,14 +14,43 @@ class sysApplication {
 
 
 	/**
+	* Registry for the application.
+	*
+	* @var		sysRegistry $registry
+	* @access	private
+	*/
+
+	private $registry;
+
+
+
+	/**
+	* Provide access to the registry.
+	*
+	* @name		getRegistry
+	* @access	public
+	* @return	sysRegistry Application registry
+	*/
+
+	public function getRegistry() {
+
+		return ($this->registry);
+
+	}
+
+
+
+	/**
 	* Initialise the application.
 	*
-	* @name			__construct
-	* @access		public
-	* @return		void
+	* @name		__construct
+	* @access	public
+	* @return	void
 	*/
 
 	public function __construct() {
+
+		$this->registry = new sysRegistry();
 
 		return;
 
@@ -40,7 +69,9 @@ class sysApplication {
 
 	public function start($_uri) {
 
-		echo "Application URI: " . $_uri;
+		echo $this->registry->getKey("application-name") . " ";
+
+		echo $this->registry->getKey("application-version");
 
 		return;
 

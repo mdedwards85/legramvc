@@ -14,11 +14,15 @@ define("ROOT_PATH", dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR);
 
 define("SYSTEM_PATH", ROOT_PATH . "system" . DIRECTORY_SEPARATOR);
 
+define("CONFIG_PATH", ROOT_PATH . "config" . DIRECTORY_SEPARATOR);
+
 
 
 // load system classes
 
 require_once(SYSTEM_PATH . "sys.application.php");
+
+require_once(SYSTEM_PATH . "sys.registry.php");
 
 
 
@@ -33,6 +37,8 @@ require_once(SYSTEM_PATH . "sys.application.php");
 function main($_uri) {
 
 	$application = new sysApplication();
+
+	include(CONFIG_PATH . "init.php");
 
 	$application->start($_uri);
 
