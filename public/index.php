@@ -24,6 +24,8 @@ require_once(SYSTEM_PATH . "sys.application.php");
 
 require_once(SYSTEM_PATH . "sys.registry.php");
 
+require_once(SYSTEM_PATH . "sys.router.php");
+
 
 
 /**
